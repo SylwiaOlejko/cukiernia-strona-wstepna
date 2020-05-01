@@ -1,0 +1,28 @@
+{
+  "name": "taskrunner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init-project": "npm install && npm-run-all init:*",
+    "init:dirs": "mkdirp sass css vendor images js",
+    "init:files": "touch README.md index.html sass/style.scss js/script.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "test": "npm run test:html",
+    "bulid:sass": "node-sass --output-style compact -o css sass",
+    "build:autoprefixer": "autoprefixer-cli css/style.css",
+    "build": "npm-run-all build:* test",
+    "test:html": "html-validate *.html",
+    "build-dev": "npm-run-all build-dev:sass build:autoperfixer",
+    "build-dev:sass": "node-sass --output-style expanded --source-map true -o css sass"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-cli": "^1.0.0",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
