@@ -1,14 +1,3 @@
-//const activeLinks = document.querySelectorAll('.titles a.active');
-
-//const activeLinks = document.querySelectorAll('.titles a.active');
-//for (let activeLink of activeLinks);
-//{ activeLink.classList.remove('active'); }
-const activeLinks = document.querySelectorAll('.titles a.active');
-
-for (let activeLink of activeLinks) {
-activeLink.classList.remove('active');
-}
-
 document.getElementById('test-button').addEventListener('click', function(){
     console.log('Guzik został kliknięty');
   });
@@ -22,6 +11,10 @@ document.getElementById('test-button').addEventListener('click', function(){
       console.log('Link was clicked!');
       /*remove class 'active' from all article links */
       /* add class 'active' to the clicked link*/
+      const activeArticle = document.querySelectorAll('active');
+      for(let activeArticle of activeArticles){
+        activeArticle.classList.remove('active');
+      }
       /* remove class 'active' from all articles*/
       /*get 'href' attribute from the clicked link*/
       /* find the correct article using the selector (value of 'href' attribute)*/
@@ -32,4 +25,9 @@ document.getElementById('test-button').addEventListener('click', function(){
 
   for(let link of links){
       link.addEventListener('click' , titleClickHandler);
+  }
+  const activeLinks = document.querySelectorAll('titles a.active');
+
+  for(let activeLink of activeLinks){
+      activeLink.classList.remove('active');
   }
