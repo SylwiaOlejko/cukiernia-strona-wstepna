@@ -11,7 +11,7 @@
 const titleClickHandler = function(event){
     const clickedElement = this;
     console.log('Link was clicked!');
-    event.preventDefault();
+    //event.preventDefault();
     /*remove class 'active' from all article links */
 
     const activeLinks = document.querySelectorAll('.titles a.active');
@@ -42,8 +42,12 @@ const titleClickHandler = function(event){
 
     /* find the correct article using the selector (value of 'href' attribute)*/
 
+    //const targetArticle = querySelector('href');
+    //    console.log('link id');
 
-/* add class 'active' to the correct article*/
+    /* add class 'active' to the correct article*/
+
+    //  targetArticle.classList.add('active');
 };
 
 const links = document.querySelectorAll('.titles a');
