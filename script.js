@@ -42,11 +42,17 @@ const titleClickHandler = function(event){
 
     /* find the correct article using the selector (value of 'href' attribute)*/
 
+    const targetArticle = querySelector ('href');
+    console.log('Link was clocked');
+
+
     //const targetArticle = querySelector('href');
     //    console.log('link id');
 
     /* add class 'active' to the correct article*/
 
+   targetArticle = document.querySelectorAll('.titles a.active'); 
+   
     //  targetArticle.classList.add('active');
 };
 
@@ -61,34 +67,33 @@ for(let link of links){
  
 /* get 'href' attribute from the clicked link */
 const articleSelector = 'href';
-function getAtribute (clickedElement){
+const getAtribute = function (clickedElement);
 
-}
 /* find the correct article using the selector (value of 'href' attribute) */
 
-const targetArticle = document.querySelector(articleSelector);
-//function querySelector(querySelectorAll)
+const targetArticle = document.querySelector(articleSelector); 
+
+const querySelector = function (querySelectorAll)
 
 /* add class 'active' to the correct article */
 
-document.querySelectorAll(targetArticle).classActive;
+document = classActive.querySelectorAll(targetArticle);
 
 const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
 const optArticleTagsSelector = '.post-tags .list';
-function generateTitleLinks(){
+function generateTitleLinks  (){
 }
 /*remove contrnts od titleList*/
 
 const querySelector = 'titleList';
 
-function clearMessages(){
-    document.getElementById('messages').innerHTML = '';
+function clearMessages  (){
+    document.getElementById('messages').innerHTML = 'titleList';
 }
 /*for each article */
-const article = document.optArticleSelector;
-
+const article = document.querySelector(optArticleSelector);
 
 for(let link of links){
     console.log(link);
@@ -106,7 +111,7 @@ const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</s
 console.log('dziala');
 /*insert link into titleList*/
 optTitleListSelector.innerHTML = titleList.innerHTML + linkHTML;
-function insertAdjacentHTML(){
+const insertAdjacentHTML = function (){
     linkHTML = 'innerHTML';
 }
 generateTitleLinks();
