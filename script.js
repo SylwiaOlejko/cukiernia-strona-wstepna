@@ -12,6 +12,7 @@ const titleClickHandler = function(event){
     const clickedElement = this;
     console.log('Link was clicked!');
     //event.preventDefault();
+
     /*remove class 'active' from all article links */
 
     const activeLinks = document.querySelectorAll('.titles a.active');
@@ -85,6 +86,7 @@ const optArticleSelector = '.post',
 const optArticleTagsSelector = '.post-tags .list';
 function generateTitleLinks  (){
 }
+
 /*remove contrnts od titleList*/
 
 const querySelector = 'titleList';
@@ -105,10 +107,12 @@ const articleId = document.id;
 const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
 /*get the title from the title element*/
+title = document.articleId("title")
 
 /* create HTML of the link*/
 const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 console.log('dziala');
+
 /*insert link into titleList*/
 optTitleListSelector.innerHTML = titleList.innerHTML + linkHTML;
 const insertAdjacentHTML = function (){
@@ -122,24 +126,33 @@ optTitleListSelector = '.titles',
 
 function generateTitleLinks(){
     /*remove contents of titles */
-    /* ... */
-
+    
+    const li = document.querySelectorAll("#list li");
+    for (let i=li.length-1; i<=0; i++) {
+        li[i].remove();
+    }
     /* find all the articles and save them to variable: articles */
-    /* ... */
 
     let html ='';
     for(let article of articles){
+
         /*get the article id*/
-        /* ... */
+        var articleId = document.getElementById("artykul")
 
         /* find the title element */
-        /* ... */
+        document.getElementsByClassName('title');
 
         /* get the title from the title element*/
         /* ... */
 
         /*create HTML of the link */
-        /* ... */
+        const html = document.createElement("div");
+
+        html.id = "myDiv";
+        html.innerText = "Tekst w divie";
+        html.setAttribute("title", "To jest tekst w dymku");
+        html.classList.add("module");
+        html.style.setProperty("background-color", "#FF6633");
 
         /*insert link into html variable*/
 
@@ -151,34 +164,8 @@ function generateTitleLinks(){
 };
 
 generateTitleLinks();
+
 for(let link of links){
     link.addEventListener('click' , titleClickHandler);
     console.log (links);
 }
-function generateTags(){
-    /* find all articles */
-  
-    /* START LOOP: for every article: */
-  
-    /* find tags wrapper */
-  
-    /* make html variable with empty string */
-
-    /* get tags from data-tags attribute */
-
-    /* split tags into array */
-
-    /* START LOOP: for each tag */
-
-    /* generate HTML of the link */
-
-    /* add generated code to html variable */
-
-    /* END LOOP: for each tag */
-
-    /* insert HTML of all the links into the tags wrapper */
-
-/* END LOOP: for every article: */
-}
-  
-generateTags();
