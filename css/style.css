@@ -103,3 +103,7 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.list.titles a {
+  display: block; 
+}
