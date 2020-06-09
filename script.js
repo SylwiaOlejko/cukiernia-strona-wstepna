@@ -109,46 +109,53 @@ function generateTags(){
 
     /* START LOOP: for every article: */
 
-    for (let article of articles){
+    for (let article of optArticleTagsSelector){
     
         /* find tags wrapper */
-
-        const tagsWrapper = document.querySelectorAll().innerHTML;
+       
+        tagsWrapper.innerHTML = '';
 
         /* make html variable with empty string */
 
-        let html = document.querySelector(optArticleTagsSelector);
+        let html = '';
 
         /* get tags from data-tags attribute */
 
-        const attribute = data-tags.getAttribute('post-tags');
+        const articleTags = article.getAttribute('data-tags');
+
 
         /* split tags into array */
 
-
-
+        const articleTagsArray = articleTags.split(' ');
+        console.log(articleTagsArray);
         /* START LOOP: for each tag */
     
-        for (let tag of tags){
-        
+        for (let tag of articleTagsArray){
+            console.log(tag)
 
             /* generate HTML of the link */
+            const generateTitleLinks = document.querySelector(optTitleListSelector);
+            console.log(generateTitleLinks);
+            generateTitleLinks.innerHTML = '';
 
-            const linkHTML = '<a href="#' + linkId + '"><strong>' + linkTitle + '</strong></a>'
+        
 
             /* add generated code to html variable */
 
-            let html = document.querySelectorAll().linkHTML
+            let html = document.querySelectorAll().linkHTML;
 
             /* END LOOP: for each tag */
-            //for (i=1; i<=10; i++) 
+            
         
         }
 
         /* insert HTML of all the links into the tags wrapper */
+        const tagsWrapper = document.querySelector(optTitleListSelector);
+        console.log(tagsWrapper);
 
-        const tagsWrapper = html + linkHTML;
-        tagsWrapper.linkHTML.remove('tags');
+        tagsWrapper.innerHTML = '';
+        
+        
 
         /* END LOOP: for every article: */
         
@@ -157,3 +164,5 @@ function generateTags(){
 }
   
 generateTags();
+
+
