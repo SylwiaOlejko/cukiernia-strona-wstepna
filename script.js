@@ -135,7 +135,6 @@ function generateTags(){
 
             /* generate HTML of the link */
             const generateTitleLinks = document.querySelector(optTitleListSelector);
-            console.log(generateTitleLinks);
             generateTitleLinks.innerHTML = '';
 
         
