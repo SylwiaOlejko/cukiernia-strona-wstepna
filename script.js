@@ -164,4 +164,82 @@ function generateTags(){
   
 generateTags();
 
+function tagClickHandler(event){
+    /* prevent default action for this event */
+  
 
+    /* make new constant named "clickedElement" and give it the value of "this" */
+
+    const clickedElement = this;
+
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+    const href = clickedElement.getAttribute('href');
+
+    /* make a new constant "tag" and extract tag from the "href" constant */
+
+    const tag = href.replace('#tag-', '');
+
+    /* find all tag links with class active */
+    
+    const linksTag = document.querySelectorAll('.class active');
+
+    /* START LOOP: for each active tag link */
+
+    for (let activeTag of clickedElement){
+
+        /* remove class active */
+
+        activeTag.linksTag.remove('.active');
+
+    /* END LOOP: for each active tag link */
+    }
+    /* find all tag links with "href" attribute equal to the "href" constant */
+
+    const linksTags = href.getAttribute('.href');
+
+    /* START LOOP: for each found tag link */
+
+    for (let tag of linksTags){
+
+        /* add class active */
+
+        clickedElement.linksTags.add('active');
+
+    /* END LOOP: for each found tag link */
+    }
+    /* execute function "generateTitleLinks" with article selector as argument */
+}
+function generateTitleLinks  (customSelector = ''){}
+    //function multiplyNumbers(numA, numB = 2){
+    //return numA * numB;
+    //}
+    //const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    //console.log('multiplyNumbers(5, 3) =', multiplyNumbers(5, 3)); // multiplyNumbers(5, 3) = 15
+    //console.log('multiplyNumbers(5) =', multiplyNumbers(5)); // multiplyNumbers(5) = 10
+
+
+  
+function addClickListenersToTags(){
+    /* find all links to tags */
+    const linkTags = document.getAttribute('tags');
+    /* START LOOP: for each link */
+    for (let link of linkTags);
+    /* add tagClickHandler as event listener for that link */
+    tagClickHandler.link.add('addClickListenersToTags');
+    /* END LOOP: for each link */
+}
+  
+addClickListenersToTags();
+
+finction generateAuthors(){
+    const optArticleAuthorSelector = document.querySelectorAll(optAuthor).innerHTML;
+for (let author of optArticleAuthorSelector){
+    tagsWrapper.innerHTML = '';
+    let html = '';
+    const articleAuthor = article.getAttribute('data-author')
+}
+}
+function addClickListenersToAuthors(){
+
+}
