@@ -201,22 +201,34 @@ function addClickListenersToTags(){
     /* find all links to tags */
     const linkTags = document.querySelectorAll('tags');
     /* START LOOP: for each link */
-    for (let link of linkTags);
+    for (let tag of linkTags){
     /* add tagClickHandler as event listener for that link */
-    link.add('addClickListenersToTags');
+        tag.add('active');
     /* END LOOP: for each link */
+    }
 }
   
 addClickListenersToTags();
 
 function generateAuthors(){
-    const optArticleAuthorSelector = document.querySelectorAll(optAuthor).innerHTML;
-for (let author of optArticleAuthorSelector){
-    tagsWrapper.innerHTML = '';
-    let html = '';
-    const articleAuthor = article.getAttribute('data-author')
+    const generateAuthors= document.querySelectorAll('authors');
+    
+    for (let author of generateAuthors){
+        author.add('generateAuthors');
+        const articleAuthor = document.getAttribute('data-author');
+        articleAuthor.classList.remove('active');
+        
+       
+    } 
+    
 }
-}
-function addClickListenersToAuthors(){
+generateAuthors();
 
+function addClickListenersToAuthors(){
+    const listeners = document.querySelectorAll('optArticleTagsSelector');
+    for (let listener of listeners){
+        listener.classList.remove('active');
+        
+    }
 }
+addClickListenersToAuthors();
