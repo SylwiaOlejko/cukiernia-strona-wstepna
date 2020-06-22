@@ -1,7 +1,7 @@
 'use strict';
 
 
-const optArticleSelctor = '.post',
+const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
@@ -67,7 +67,7 @@ function generateTitleLinks(customSelector = '') {
     /* for each article */
 
     let html = '';
-    const articles = document.querySelectorAll(optArticleSelctor + customSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     for (let article of articles) {
 
@@ -105,15 +105,14 @@ for (let link of links) {
 
 function generateTags(){
     /* find all articles */
-    const optArticleTagsSelector = document.querySelector(optTitleSelector).innerHTML;
+    const articles = document.querySelectorAll(optArticleSelector);
 
     /* START LOOP: for every article: */
 
-    for (let article of optArticleTagsSelector){
+    for (let article of articles){
     
         /* find tags wrapper */
-       
-        tagsWrapper.innerHTML = '';
+        const tagsWrapper = article.querySelector(optArticleTagsSelector);
 
         /* make html variable with empty string */
 
@@ -123,42 +122,28 @@ function generateTags(){
 
         const articleTags = article.getAttribute('data-tags');
 
-
         /* split tags into array */
 
         const articleTagsArray = articleTags.split(' ');
-        console.log(articleTagsArray);
         /* START LOOP: for each tag */
     
         for (let tag of articleTagsArray){
-            console.log(tag)
 
             /* generate HTML of the link */
-            const generateTitleLinks = document.querySelector(optTitleListSelector);
-            generateTitleLinks.innerHTML = '';
-
-        
+            
+            const link = '<a href="#tag-' + tag + '">' + tag + '</a>';
 
             /* add generated code to html variable */
 
-            let html = document.querySelectorAll().linkHTML;
+            html = html + link;
 
             /* END LOOP: for each tag */
-            
-        
         }
 
         /* insert HTML of all the links into the tags wrapper */
-        const tagsWrapper = document.querySelector(optTitleListSelector);
-        console.log(tagsWrapper);
-
-        tagsWrapper.innerHTML = '';
-        
-        
-
+        tagsWrapper.innerHTML = html;
         /* END LOOP: for every article: */
         
-
     }
 }
   
@@ -166,7 +151,7 @@ generateTags();
 
 function tagClickHandler(event){
     /* prevent default action for this event */
-  
+    event.preventDefault();
 
     /* make new constant named "clickedElement" and give it the value of "this" */
 
@@ -182,57 +167,49 @@ function tagClickHandler(event){
 
     /* find all tag links with class active */
     
-    const linksTag = document.querySelectorAll('.class active');
+    const activeLinksTag = document.querySelectorAll(optArticleTagsSelector + ' .active');
 
     /* START LOOP: for each active tag link */
 
-    for (let activeTag of clickedElement){
+    for (let activeLinkTag of activeLinksTag){
 
         /* remove class active */
 
-        activeTag.linksTag.remove('.active');
+        activeLinkTag.remove('.active');
 
     /* END LOOP: for each active tag link */
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
-
-    const linksTags = href.getAttribute('.href');
+    
+    const linksTags = document.querySelectorAll('a[href="' + href + '"]');
 
     /* START LOOP: for each found tag link */
 
-    for (let tag of linksTags){
+    for (let linkTag of linksTags){
 
         /* add class active */
 
-        clickedElement.linksTags.add('active');
+        linkTag.add('active');
 
     /* END LOOP: for each found tag link */
     }
     /* execute function "generateTitleLinks" with article selector as argument */
+    generateTitleLinks();
 }
-function generateTitleLinks  (customSelector = ''){}
-    //function multiplyNumbers(numA, numB = 2){
-    //return numA * numB;
-    //}
-    //const articles = document.querySelectorAll(optArticleSelector + customSelector);
-    //console.log('multiplyNumbers(5, 3) =', multiplyNumbers(5, 3)); // multiplyNumbers(5, 3) = 15
-    //console.log('multiplyNumbers(5) =', multiplyNumbers(5)); // multiplyNumbers(5) = 10
-
-
   
 function addClickListenersToTags(){
     /* find all links to tags */
-    const linkTags = document.getAttribute('tags');
+    const linkTags = document.querySelectorAll('tags');
     /* START LOOP: for each link */
     for (let link of linkTags);
     /* add tagClickHandler as event listener for that link */
-    tagClickHandler.link.add('addClickListenersToTags');
+    link.add('addClickListenersToTags');
     /* END LOOP: for each link */
 }
   
 addClickListenersToTags();
 
-finction generateAuthors(){
+function generateAuthors(){
     const optArticleAuthorSelector = document.querySelectorAll(optAuthor).innerHTML;
 for (let author of optArticleAuthorSelector){
     tagsWrapper.innerHTML = '';
