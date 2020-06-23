@@ -5,7 +5,9 @@ const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list';
-
+const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+};
 const titleClickHandler = function (event) {
 
     event.preventDefault;
@@ -13,6 +15,7 @@ const titleClickHandler = function (event) {
     console.log('Link was clicked!');
     console.log(event);
 
+    
     /* remove class 'active' from all article links  */
 
     const activeLinks = document.querySelectorAll('.titles a.active');
@@ -232,3 +235,59 @@ function addClickListenersToAuthors(){
     }
 }
 addClickListenersToAuthors();
+
+const tplHelloSource = document.querySelector('#template-hello').innerHTML;
+
+const tplHello = Handlebars.compile(tplHelloSource);
+
+const dataHello = {firstName: 'John', lastName: 'Smith'};
+
+let generatedHTML = tplHello(dataHello);
+
+const targetElement = document.body;
+
+targetElement.insertAdjacentHTML('beforeend', generatedHTML);
+
+console.log('tplHello:');
+
+console.log(tplHelloSource);
+
+console.log('=========');
+
+console.log('dataHello:');
+
+console.log(dataHello);
+
+console.log('=========');
+
+console.log('generatedHTML:');
+
+console.log(generatedHTML);
+
+console.log('=========');
+
+const tplProductListSource = document.querySelector('#template-product-list').innerHTML;
+const tplProductList = Handlebars.compile(tplProductListSource);
+
+const productListData = {
+    title: 'Great offers!',
+    products: {
+        'product-football': {
+            name: 'Football',
+            price: '$10'
+        },
+        'product-volleyball': {
+            name: 'Volleyball',
+            price: '$8'
+        },
+        'product-basketball': {
+            name: 'Basketball',
+            price: '$12'
+        }
+    }
+};
+const linkHTMLData = {id: articleId, title: articleTitle};
+const linkHTML = templates.articleLink(linkHTMLData);
+
+generatedHTML = tplProductList(productListData);
+targetElement.insertAdjacentHTML('beforeend', generatedHTML);
