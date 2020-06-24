@@ -84,7 +84,8 @@ function generateTitleLinks(customSelector = '') {
 
         /* create HTML of the link */
 
-        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        const linkHTMLData = {id: articleId, title: articleTitle};
+        const linkHTML = templates.articleLink(linkHTMLData);
 
         /* insert link into titleList */
 
@@ -134,7 +135,10 @@ function generateTags(){
 
             /* generate HTML of the link */
             
-            const link = '<a href="#tag-' + tag + '">' + tag + '</a>';
+            
+
+            const linkHTMLData = {id: 'tag-' + tag , title: tag};
+            const link = templates.articleLink(linkHTMLData);
 
             /* add generated code to html variable */
 
@@ -214,15 +218,24 @@ function addClickListenersToTags(){
 addClickListenersToTags();
 
 function generateAuthors(){
-    const generateAuthors= document.querySelectorAll('authors');
     
-    for (let author of generateAuthors){
+    const Authors = document.querySelector(optTitleListSelector);
+    console.log(generateAuthors);
+    Authors.innerHTML = '';
+
+    let html = '';
+   
+
+    for (let author of Authors){
         author.add('generateAuthors');
         const articleAuthor = document.getAttribute('data-author');
+        console.log('article');
         articleAuthor.classList.remove('active');
         
        
     } 
+    
+    
     
 }
 generateAuthors();
@@ -286,8 +299,7 @@ const productListData = {
         }
     }
 };
-const linkHTMLData = {id: articleId, title: articleTitle};
-const linkHTML = templates.articleLink(linkHTMLData);
+
 
 generatedHTML = tplProductList(productListData);
 targetElement.insertAdjacentHTML('beforeend', generatedHTML);
