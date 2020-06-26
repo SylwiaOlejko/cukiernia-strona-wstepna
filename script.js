@@ -217,25 +217,37 @@ function addClickListenersToTags(){
   
 addClickListenersToTags();
 
-function generateAuthors(){
-    
-    const Authors = document.querySelector(optTitleListSelector);
-    console.log(generateAuthors);
-    Authors.innerHTML = '';
+function generateAuthors() {
+    /* [DONE] find all articles */
 
-    let html = '';
-   
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log(articles);
 
-    for (let author of Authors){
-        author.add('generateAuthors');
-        const articleAuthor = document.getAttribute('data-author');
-        console.log('article');
-        articleAuthor.classList.remove('active');
-        
-       
-    } 
-    
-    
+    /* [DONE] START LOOP: for every article: */
+
+    for (let article of articles) {
+
+        /* [DONE] get authors from data-author attribute */
+
+        const authorAtribute = article.getAttribute('data-author');
+        console.log(authorAtribute);
+
+        /* [DONE] get author title from article */
+
+        const authorTitle = article.querySelector(optArticleSelector);
+        console.log(authorTitle);
+
+        /* [DONE] generate HTML of the link */
+
+        const linkHtmlData = { author: authorAtribute };
+        authorTitle.innerHTML = templates.articleAuthor(linkHtmlData);
+
+        //authorTitle.innerHTML = `<a href="#author-${authorAtribute}">by ${authorAtribute}</a>`;
+        //console.log(authorTitle);
+
+        /* [DONE] END LOOP: for every article: */
+    }
+ 
     
 }
 generateAuthors();
