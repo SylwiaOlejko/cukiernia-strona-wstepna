@@ -241,9 +241,9 @@ function generateAuthors() {
 
         const linkHtmlData = { author: authorAtribute };
         authorTitle.innerHTML = templates.articleAuthor(linkHtmlData);
-
-        //authorTitle.innerHTML = `<a href="#author-${authorAtribute}">by ${authorAtribute}</a>`;
-        //console.log(authorTitle);
+        
+        authorTitle.innerHTML = `<a href="#author-${authorAtribute}">by ${authorAtribute}</a>`;
+        console.log(authorTitle);
 
         /* [DONE] END LOOP: for every article: */
     }
